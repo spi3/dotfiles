@@ -1,0 +1,7 @@
+[user]
+	name = spi
+	email = spi3@pm.me
+
+[safe]
+	directory = /mnt/repos/
+	directory = ~/repos
