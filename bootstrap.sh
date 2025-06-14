@@ -18,7 +18,7 @@ PWD=`pwd`
 for dotfile in dotfiles/*; do
 
     FILE_NAME=`basename $dotfile`
-    FILE_HOME_NAME=~/.$FILE_NAME
+    FILE_HOME_NAME=$HOME/.$FILE_NAME
 
     rm -f $FILE_HOME_NAME
 
