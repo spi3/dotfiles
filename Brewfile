@@ -1,12 +1,10 @@
 
-
-
 brew 'git'
 brew 'tmux'
-brew 'bitwarden'
-brew 'discord'
 
-
+cask 'bitwarden'
 cask 'visual-studio-code'
 cask 'cursor'
 cask 'nextcloud'
+cask 'steam'
+cask 'discord'
