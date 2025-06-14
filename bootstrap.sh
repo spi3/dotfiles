@@ -1,5 +1,16 @@
 #!/usr/bin/env sh
 
+set -x
+echo "Running bootstrap"
+
+UNAME=`uname`
+
+
+# Install Homebrew packages if on macOS
+if [ "$UNAME" = "Darwin" ]; then
+  sh macos_setup.sh
+fi
+
 PWD=`pwd`
 for dotfile in dotfiles/*; do
 
@@ -12,3 +23,10 @@ for dotfile in dotfiles/*; do
     ln -s $PWD/$dotfile $FILE_HOME_NAME
     
 done
+
+# Install ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+
+
