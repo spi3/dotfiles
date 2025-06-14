@@ -5,8 +5,7 @@ echo "Running bootstrap"
 
 UNAME=`uname`
 
-
-# Install Homebrew packages if on macOS
+# Run macOS setup if the system is Darwin
 if [ "$UNAME" = "Darwin" ]; then
   sh macos_setup.sh
 fi
