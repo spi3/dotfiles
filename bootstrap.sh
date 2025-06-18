@@ -8,6 +8,8 @@ UNAME=`uname`
 # Run macOS setup if the system is Darwin
 if [ "$UNAME" = "Darwin" ]; then
   sh macos_setup.sh
+else if [ "$UNAME" = "Linux" ]; then
+  sh linux_setup.sh
 fi
 
 # Install ohmyzsh
