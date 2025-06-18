@@ -20,4 +20,8 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# pipx path and autocompletion
+export PATH="$PATH:$HOME/.local/bin"
+autoload -U bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pipx)"
