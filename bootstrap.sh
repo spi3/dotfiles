@@ -15,6 +15,10 @@ fi
 # Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Set zsh as default shell
+echo "Setting zsh as default shell..."
+chsh -s $(which zsh)
+
 PWD=`pwd`
 for dotfile in dotfiles/*; do
 
