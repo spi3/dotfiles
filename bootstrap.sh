@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-set -x
+#set -x
 echo "Running bootstrap"
 
 UNAME=`uname`
@@ -8,7 +8,7 @@ UNAME=`uname`
 # Run macOS setup if the system is Darwin
 if [ "$UNAME" = "Darwin" ]; then
   sh macos_setup.sh
-else if [ "$UNAME" = "Linux" ]; then
+elif [ "$UNAME" = "Linux" ]; then
   sh linux_setup.sh
 fi
 
@@ -27,7 +27,4 @@ for dotfile in dotfiles/*; do
     ln -s $PWD/$dotfile $FILE_HOME_NAME
     
 done
-
-
-
 
