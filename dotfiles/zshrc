@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="nicoulaj"
 
-export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/.local/bin:/usr/local/go/bin:$PATH"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -22,7 +22,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # pipx path and autocompletion
-export PATH="$PATH:$HOME/.local/bin"
 autoload -U bashcompinit
 bashcompinit
 #eval "$(register-python-argcomplete pipx)"
@@ -37,3 +36,5 @@ export SECRETS_DIR=~/repos/secrets
 #  export TUTR_AUTOSTARTED=1
 #  exec tutr
 #fi
+
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
