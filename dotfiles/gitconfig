@@ -5,3 +5,9 @@
 [safe]
 	directory = /mnt/repos/
 	directory = ~/repos
+	directory = /mnt/repos/kube
+	directory = /mnt/repos/wormhole
+	directory = /mnt/repos/docker-configs
+	directory = /mnt/repos/docker-steam-servers
+[init]
+	defaultBranch = main

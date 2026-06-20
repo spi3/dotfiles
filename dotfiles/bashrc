@@ -4,3 +4,4 @@
 alias python=python3
 alias dc='docker compose'
 
+. "$HOME/.cargo/env"
