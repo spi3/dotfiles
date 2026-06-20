@@ -24,4 +24,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.local/bin"
 autoload -U bashcompinit
 bashcompinit
-eval "$(register-python-argcomplete pipx)"
+#eval "$(register-python-argcomplete pipx)"
+
+#if [[ -o interactive ]] && [[ -z "${TUTR_AUTOSTARTED:-}" ]] && [[ -z "${TUTR_SKIP_AUTOSTART:-}" ]]; then
+#  export TUTR_AUTOSTARTED=1
+#  exec tutr
+#fi

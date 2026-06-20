@@ -32,3 +32,23 @@ for dotfile in dotfiles/*; do
     
 done
 
+if [ -d config ]; then
+    mkdir -p "$HOME/.config"
+
+    for config_file in config/*; do
+        [ -e "$config_file" ] || continue
+
+        FILE_NAME=`basename $config_file`
+        FILE_HOME_NAME=$HOME/.config/$FILE_NAME
+
+        if [ -L "$FILE_HOME_NAME" ]; then
+            rm -f "$FILE_HOME_NAME"
+        elif [ -e "$FILE_HOME_NAME" ]; then
+            echo "Skipping $FILE_HOME_NAME because it already exists and is not a symlink"
+            continue
+        fi
+
+        echo Linking $FILE_NAME to $FILE_HOME_NAME
+        ln -s $PWD/$config_file $FILE_HOME_NAME
+    done
+fi
