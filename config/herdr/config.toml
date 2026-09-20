@@ -1,5 +1,73 @@
 onboarding = false
 
 [keys]
-split_vertical = ["prefix+v", "prefix+percent"]
-split_horizontal = ["prefix+minus", "prefix+double_quote"]
+prefix = "ctrl+b"
+
+# tmux prefix bindings
+help = "prefix+?"
+detach = "prefix+d"
+reload_config = "prefix+r"
+workspace_picker = ["prefix+s", "prefix+w"]
+goto = ["prefix+f", "prefix+g"]
+previous_workspace = "prefix+("
+next_workspace = "prefix+)"
+rename_workspace = ["prefix+$", "prefix+shift+w"]
+new_workspace = "prefix+shift+n"
+close_workspace = "prefix+shift+d"
+settings = "prefix+shift+s"
+open_notification_target = "prefix+shift+o"
+
+# tmux windows map to Herdr tabs.
+new_tab = "prefix+c"
+rename_tab = ["prefix+comma", "prefix+shift+t"]
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = "prefix+1..9"
+close_tab = ["prefix+ampersand", "prefix+shift+x"]
+
+# tmux panes
+copy_mode = "prefix+["
+focus_pane_left = ["prefix+h", "prefix+left"]
+focus_pane_down = ["prefix+j", "prefix+down"]
+focus_pane_up = ["prefix+k", "prefix+up"]
+focus_pane_right = ["prefix+l", "prefix+right"]
+cycle_pane_next = ["prefix+o", "prefix+tab"]
+cycle_pane_previous = "prefix+shift+tab"
+last_pane = "prefix+semicolon"
+split_vertical = ["prefix+percent", "prefix+v"]
+split_horizontal = ["prefix+double_quote", "prefix+minus"]
+close_pane = "prefix+x"
+zoom = "prefix+z"
+resize_mode = "prefix+shift+r"
+resize_pane_left = ["prefix+ctrl+left", "prefix+alt+left"]
+resize_pane_down = ["prefix+ctrl+down", "prefix+alt+down"]
+resize_pane_up = ["prefix+ctrl+up", "prefix+alt+up"]
+resize_pane_right = ["prefix+ctrl+right", "prefix+alt+right"]
+
+# Herdr-only actions kept on non-conflicting bindings.
+rename_pane = "prefix+shift+p"
+edit_scrollback = "prefix+e"
+swap_pane_left = "prefix+shift+h"
+swap_pane_down = "prefix+shift+j"
+swap_pane_up = "prefix+shift+k"
+swap_pane_right = "prefix+shift+l"
+toggle_sidebar = "prefix+b"
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[ui]
+sidebar_start_collapsed = true
+sidebar_collapsed_mode = "hidden"
+accent = "#f9e2af"
+pane_borders = "auto"
+pane_outer_borders = true
+pane_scrollbars = false
+pane_gaps = true
+tab_bar_position = "bottom"
+tab_bar_right = [
+  { type = "zoom" },
+  { type = "hostname" },
+  { type = "datetime", format = "%H:%M %d-%b-%y" },
+]
