@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository stores personal development dotfiles for macOS and Linux. Root setup scripts live at `bootstrap.sh`, `macos_setup.sh`, and `linux_setup.sh`. Shell, Git, Vim, and Zsh configuration files are kept in `dotfiles/` and are symlinked into `$HOME` with a leading dot. App config directories, including Neovim, live in `config/` and are linked into `~/.config/`. macOS profile snippets live in `macos/profile/`. Homebrew package state is managed through the root `Brewfile`.
+This repository stores personal development dotfiles for macOS and Linux. Root setup scripts live at `bootstrap.sh`, `macos_setup.sh`, and `linux_setup.sh`. Shell, Git, Vim, and Zsh configuration files are kept in `dotfiles/` and are symlinked into `$HOME` with a leading dot. App config directories, including Neovim, live in `config/` and are linked into `~/.config/`. Pi coding agent config lives in `pi/` and each entry is linked into `~/.pi/agent/`; `auth.json`, `sessions/`, and `trust.json` are never versioned. macOS profile snippets live in `macos/profile/`. Homebrew package state is managed through the root `Brewfile`.
 
 ## Build, Test, and Development Commands
 

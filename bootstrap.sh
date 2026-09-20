@@ -76,3 +76,25 @@ if [ -d config ]; then
         ln -s $PWD/$config_file $FILE_HOME_NAME
     done
 fi
+
+# Link pi config into ~/.pi/agent without touching auth.json, sessions, or trust.json
+if [ -d pi ]; then
+    mkdir -p "$HOME/.pi/agent"
+
+    for pi_file in pi/*; do
+        [ -e "$pi_file" ] || continue
+
+        FILE_NAME=`basename $pi_file`
+        FILE_HOME_NAME=$HOME/.pi/agent/$FILE_NAME
+
+        if [ -L "$FILE_HOME_NAME" ]; then
+            rm -f "$FILE_HOME_NAME"
+        elif [ -e "$FILE_HOME_NAME" ]; then
+            echo "Skipping $FILE_HOME_NAME because it already exists and is not a symlink"
+            continue
+        fi
+
+        echo Linking $FILE_NAME to $FILE_HOME_NAME
+        ln -s $PWD/$pi_file $FILE_HOME_NAME
+    done
+fi
