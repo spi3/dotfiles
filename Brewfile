@@ -1,6 +1,7 @@
 
 brew 'git'
 brew 'tmux'
+brew 'herdr'
 brew 'npm'
 brew 'gemini-cli'
 brew 'uv'

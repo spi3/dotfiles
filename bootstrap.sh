@@ -41,6 +41,30 @@ if [ -d config ]; then
         FILE_NAME=`basename $config_file`
         FILE_HOME_NAME=$HOME/.config/$FILE_NAME
 
+        # Herdr keeps runtime logs, sockets, and session state beside config.toml,
+        # so link only its tracked config files instead of the whole directory.
+        if [ "$FILE_NAME" = "herdr" ] && [ -d "$config_file" ]; then
+            mkdir -p "$FILE_HOME_NAME"
+
+            for herdr_file in "$config_file"/*; do
+                [ -e "$herdr_file" ] || continue
+
+                HERDR_FILE_NAME=`basename "$herdr_file"`
+                HERDR_FILE_HOME_NAME=$FILE_HOME_NAME/$HERDR_FILE_NAME
+
+                if [ -L "$HERDR_FILE_HOME_NAME" ]; then
+                    rm -f "$HERDR_FILE_HOME_NAME"
+                elif [ -e "$HERDR_FILE_HOME_NAME" ]; then
+                    echo "Skipping $HERDR_FILE_HOME_NAME because it already exists and is not a symlink"
+                    continue
+                fi
+
+                echo Linking "$HERDR_FILE_NAME" to "$HERDR_FILE_HOME_NAME"
+                ln -s "$PWD/$herdr_file" "$HERDR_FILE_HOME_NAME"
+            done
+            continue
+        fi
+
         if [ -L "$FILE_HOME_NAME" ]; then
             rm -f "$FILE_HOME_NAME"
         elif [ -e "$FILE_HOME_NAME" ]; then
