@@ -5,3 +5,7 @@ alias python=python3
 alias dc='docker compose'
 
 . "$HOME/.cargo/env"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/spi/.lmstudio/bin"
+# End of LM Studio CLI section

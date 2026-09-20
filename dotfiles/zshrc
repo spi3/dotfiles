@@ -38,3 +38,7 @@ export SECRETS_DIR=~/repos/secrets
 #fi
 
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/spi/.lmstudio/bin"
+# End of LM Studio CLI section
