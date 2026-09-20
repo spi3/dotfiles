@@ -10,6 +10,7 @@ brew 'neovim'
 brew 'ripgrep'
 brew 'fd'
 brew 'iterm2'
+brew 'gh'
 
 cask 'bitwarden'
 cask 'visual-studio-code'
