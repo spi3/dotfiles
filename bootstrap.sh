@@ -32,6 +32,28 @@ for dotfile in dotfiles/*; do
     
 done
 
+# Link command-line scripts into ~/.local/bin
+if [ -d scripts ]; then
+    mkdir -p "$HOME/.local/bin"
+
+    for script_file in scripts/*; do
+        [ -e "$script_file" ] || continue
+
+        FILE_NAME=`basename "$script_file"`
+        FILE_HOME_NAME=$HOME/.local/bin/$FILE_NAME
+
+        if [ -L "$FILE_HOME_NAME" ]; then
+            rm -f "$FILE_HOME_NAME"
+        elif [ -e "$FILE_HOME_NAME" ]; then
+            echo "Skipping $FILE_HOME_NAME because it already exists and is not a symlink"
+            continue
+        fi
+
+        echo Linking "$FILE_NAME" to "$FILE_HOME_NAME"
+        ln -s "$PWD/$script_file" "$FILE_HOME_NAME"
+    done
+fi
+
 if [ -d config ]; then
     mkdir -p "$HOME/.config"
 

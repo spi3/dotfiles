@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository stores personal development dotfiles for macOS and Linux. Root setup scripts live at `bootstrap.sh`, `macos_setup.sh`, and `linux_setup.sh`. Shell, Git, Vim, and Zsh configuration files are kept in `dotfiles/` and are symlinked into `$HOME` with a leading dot. App config directories, including Neovim, live in `config/` and are linked into `~/.config/`. Pi coding agent config lives in `pi/` and each entry is linked into `~/.pi/agent/`; `auth.json`, `sessions/`, and `trust.json` are never versioned. macOS profile snippets live in `macos/profile/`. Homebrew package state is managed through the root `Brewfile`.
+This repository stores personal development dotfiles for macOS and Linux. Root setup scripts live at `bootstrap.sh`, `macos_setup.sh`, and `linux_setup.sh`. Shell, Git, Vim, and Zsh configuration files are kept in `dotfiles/` and are symlinked into `$HOME` with a leading dot. Command-line helpers live in `scripts/` and are linked into `~/.local/bin/`. App config directories, including Neovim, live in `config/` and are linked into `~/.config/`. Pi coding agent config lives in `pi/` and each entry is linked into `~/.pi/agent/`; `auth.json`, `sessions/`, and `trust.json` are never versioned. macOS profile snippets live in `macos/profile/`. Homebrew package state is managed through the root `Brewfile`.
 
 ## Build, Test, and Development Commands
 
@@ -10,7 +10,7 @@ This repository stores personal development dotfiles for macOS and Linux. Root s
 - `sh macos_setup.sh`: install Homebrew, run `brew bundle`, and link macOS profile snippets.
 - `sh linux_setup.sh`: install Linux dependencies through `apt`.
 - `brew bundle check`: verify that Homebrew dependencies from `Brewfile` are installed.
-- `sh -n bootstrap.sh macos_setup.sh linux_setup.sh`: check shell syntax without executing setup actions.
+- `sh -n bootstrap.sh macos_setup.sh linux_setup.sh scripts/*`: check shell syntax without executing setup actions.
 
 Run setup scripts only after reviewing them, because they replace matching files in `$HOME` with symlinks.
 
@@ -20,7 +20,7 @@ Use POSIX-compatible shell syntax unless a script explicitly requires Bash or Zs
 
 ## Testing Guidelines
 
-There is no automated test suite. Validate changes with `sh -n` for shell syntax and, when available, `shellcheck bootstrap.sh macos_setup.sh linux_setup.sh macos/profile/*.sh`. For install changes, prefer targeted checks such as `brew bundle check` before running full bootstrap. Manually inspect any symlink logic that touches `$HOME`.
+There is no automated test suite. Validate changes with `sh -n` for shell syntax and, when available, `shellcheck bootstrap.sh macos_setup.sh linux_setup.sh scripts/* macos/profile/*.sh`. For install changes, prefer targeted checks such as `brew bundle check` before running full bootstrap. Manually inspect any symlink logic that touches `$HOME`.
 
 ## Commit & Pull Request Guidelines
 
