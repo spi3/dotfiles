@@ -1,5 +1,11 @@
 onboarding = false
 
+[ui.sidebar.agents.rows_by_agent]
+codex = [
+  ["state_icon", "workspace", "tab"],
+  ["terminal_title_stripped"],
+]
+
 [keys]
 prefix = "ctrl+b"
 

@@ -5,7 +5,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="nicoulaj"
+ZSH_THEME=""
 
 export PATH="$HOME/.local/bin:/usr/local/go/bin:$PATH"
 
@@ -20,6 +20,8 @@ export PATH="$HOME/.local/bin:/usr/local/go/bin:$PATH"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
+PROMPT='%F{#cba6f7}%n%f %F{#89b4fa}%~%f %(?.%F{#a6e3a1}❯.%F{#f38ba8}❯)%f '
 
 # pipx path and autocompletion
 autoload -U bashcompinit
@@ -42,3 +44,8 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/spi/.lmstudio/bin"
 # End of LM Studio CLI section
+
+# Attach interactive SSH logins to the persistent Herdr session.
+if [[ -o interactive && -n "${SSH_TTY:-}" && "${HERDR_ENV:-}" != 1 ]] && command -v herdr >/dev/null 2>&1; then
+  exec herdr
+fi
