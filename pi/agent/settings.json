@@ -22,7 +22,8 @@
     "npm:@tintinweb/pi-subagents",
     "npm:@narumitw/pi-btw",
     "npm:context-mode",
-    "npm:@czottmann/pi-automode",
-    "npm:@d3ara1n/pi-context-include"
+    "npm:@d3ara1n/pi-context-include",
+    "npm:@gotgenes/pi-permission-system",
+    "npm:@mzwing/pi-permission-auto-review"
   ]
 }

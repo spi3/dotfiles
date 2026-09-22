@@ -12,6 +12,31 @@ elif [ "$UNAME" = "Linux" ]; then
   sh linux_setup.sh
 fi
 
+# Homebrew installs pi on macOS. Use npm as a cross-platform fallback,
+# installing into ~/.local so the command does not require sudo.
+install_pi() {
+    if command -v pi >/dev/null 2>&1; then
+        return 0
+    fi
+
+    if ! command -v npm >/dev/null 2>&1; then
+        echo "Cannot install pi because npm is not available"
+        return 1
+    fi
+
+    echo "Installing pi coding agent..."
+    npm install -g --ignore-scripts --prefix "$HOME/.local" @earendil-works/pi-coding-agent || return 1
+    export PATH="$HOME/.local/bin:$PATH"
+    hash -r
+
+    if ! command -v pi >/dev/null 2>&1; then
+        echo "Pi was installed, but the pi command is not available on PATH"
+        return 1
+    fi
+}
+
+install_pi || exit 1
+
 # Install ohmyzsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -130,4 +155,8 @@ if [ -d pi ]; then
         FILE_NAME=`basename "$pi_file"`
         link_pi_config "$pi_file" "$HOME/.pi/agent/$FILE_NAME"
     done
+
+    # Install or update every package declared in the linked global settings.
+    echo "Installing configured pi packages..."
+    PI_CODING_AGENT_DIR="$HOME/.pi/agent" pi update --extensions || exit 1
 fi
