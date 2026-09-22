@@ -1,5 +1,13 @@
 {
   "debugLog": false,
   "permissionReviewLog": true,
-  "yoloMode": true
+  "yoloMode": false,
+  "authorizerChain": [
+    "auto-review"
+  ],
+  "permission": {
+    "*": "ask",
+    "path": "allow",
+    "external_directory": "ask"
+  }
 }

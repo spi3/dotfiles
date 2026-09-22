@@ -22,7 +22,7 @@
     "npm:@tintinweb/pi-subagents",
     "npm:@narumitw/pi-btw",
     "npm:@d3ara1n/pi-context-include",
-    "npm:@gotgenes/pi-permission-system",
-    "npm:@mzwing/pi-permission-auto-review"
+    "npm:@gotgenes/pi-permission-system@32.1.0",
+    "npm:@mzwing/pi-permission-auto-review@0.4.0"
   ]
 }
