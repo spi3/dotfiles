@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.87.0",
+  "lastChangelogVersion": "0.87.1",
   "theme": "dark",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-sol",
@@ -22,7 +22,20 @@
     "npm:@tintinweb/pi-subagents",
     "npm:@narumitw/pi-btw",
     "npm:@d3ara1n/pi-context-include",
-    "npm:@gotgenes/pi-permission-system@33.0.5",
-    "npm:@mzwing/pi-permission-auto-review@0.5.0"
-  ]
+    "npm:pi-sandbox",
+    "npm:pi-goal-x"
+  ],
+  "enabledModels": [
+    "openai-codex/gpt-5.3-codex-spark",
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra",
+    "openai-codex/gpt-6-astra",
+    "openai-codex/gpt-6-luna",
+    "openai-codex/gpt-6-sol",
+    "openai-codex/gpt-5.5",
+    "openrouter/z-ai/glm-5.3-flash",
+    "openrouter/deepseek/deepseek-v4.1-flash"
+  ],
+  "hideThinkingBlock": true
 }
