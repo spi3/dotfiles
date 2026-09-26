@@ -1,7 +1,7 @@
 {
   "debugLog": false,
   "permissionReviewLog": true,
-  "yoloMode": false,
+  "yoloMode": true,
   "authorizerChain": [
     "auto-review"
   ],
