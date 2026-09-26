@@ -1,8 +1,8 @@
 onboarding = false
 
-[ui.sidebar.agents.rows_by_agent]
-codex = [
-  ["state_icon", "workspace", "tab"],
+[ui.sidebar.agents]
+rows = [
+  ["state_icon", "machine", "workspace", "tab"],
   ["terminal_title_stripped"],
 ]
 
@@ -63,7 +63,12 @@ toggle_sidebar = "prefix+b"
 name = "catppuccin"
 auto_switch = false
 
+# Catppuccin teal and green are too close; show done as blue, apart from idle green.
+[theme.custom]
+teal = "#89b4fa"
+
 [ui]
+status_indicators = "symbols"
 sidebar_start_collapsed = true
 sidebar_collapsed_mode = "hidden"
 accent = "#f9e2af"
