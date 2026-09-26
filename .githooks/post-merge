@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+# Git runs post-merge after a merge pull and post-rewrite after a rebase pull.
+[ "$1" = amend ] && exit 0
+
+# Hooks inherit GIT_DIR and related variables, which break Git commands that
+# setup runs in other repositories.
+# shellcheck disable=SC2046
+unset $(git rev-parse --local-env-vars)
+
+exec ./bootstrap.sh

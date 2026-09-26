@@ -3,6 +3,11 @@
 #set -x
 echo "Running bootstrap"
 
+cd "$(dirname "$0")" || exit 1
+
+# Re-run this bootstrap after every pull.
+git config core.hooksPath .githooks
+
 UNAME=`uname`
 
 # Run macOS setup if the system is Darwin
@@ -37,12 +42,14 @@ install_pi() {
 
 install_pi || exit 1
 
-# Install ohmyzsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+fi
 
-# Set zsh as default shell
-echo "Setting zsh as default shell..."
-chsh -s $(which zsh)
+if [ "${SHELL##*/}" != zsh ]; then
+    echo "Setting zsh as default shell..."
+    chsh -s "$(command -v zsh)"
+fi
 
 PWD=`pwd`
 for dotfile in dotfiles/*; do

@@ -6,11 +6,11 @@ This repository stores personal development dotfiles for macOS and Linux. Root s
 
 ## Build, Test, and Development Commands
 
-- `sh bootstrap.sh`: run the platform setup, install Oh My Zsh, set Zsh as the default shell, and link files from `dotfiles/` into `$HOME`.
+- `sh bootstrap.sh`: run the platform setup, install Oh My Zsh, set Zsh as the default shell, and link files from `dotfiles/` into `$HOME`. It also sets `core.hooksPath` to `.githooks`, so every `git pull` runs it again. Keep every step idempotent and free of prompts when nothing needs to change.
 - `sh macos_setup.sh`: install Homebrew, run `brew bundle`, and link macOS profile snippets.
 - `sh linux_setup.sh`: install Linux dependencies through `apt`.
 - `brew bundle check`: verify that Homebrew dependencies from `Brewfile` are installed.
-- `sh -n bootstrap.sh macos_setup.sh linux_setup.sh scripts/*`: check shell syntax without executing setup actions.
+- `sh -n bootstrap.sh macos_setup.sh linux_setup.sh .githooks/post-merge scripts/*`: check shell syntax without executing setup actions.
 
 Run setup scripts only after reviewing them, because they replace matching files in `$HOME` with symlinks.
 
@@ -20,7 +20,7 @@ Use POSIX-compatible shell syntax unless a script explicitly requires Bash or Zs
 
 ## Testing Guidelines
 
-There is no automated test suite. Validate changes with `sh -n` for shell syntax and, when available, `shellcheck bootstrap.sh macos_setup.sh linux_setup.sh scripts/* macos/profile/*.sh`. For install changes, prefer targeted checks such as `brew bundle check` before running full bootstrap. Manually inspect any symlink logic that touches `$HOME`.
+There is no automated test suite. Validate changes with `sh -n` for shell syntax and, when available, `shellcheck bootstrap.sh macos_setup.sh linux_setup.sh .githooks/post-merge scripts/* macos/profile/*.sh`. For install changes, prefer targeted checks such as `brew bundle check` before running full bootstrap. Manually inspect any symlink logic that touches `$HOME`.
 
 ## Commit & Pull Request Guidelines
 

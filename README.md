@@ -8,6 +8,13 @@ Dotfiles for Linux/macOS development.
 - `pi/`: pi coding agent config (settings, keybindings, extensions, skills, prompts, themes) linked into `~/.pi/agent/`. Secrets and sessions stay outside the repo.
 - `scripts/`: command-line helpers linked into `~/.local/bin/`.
 - `bootstrap.sh`: runs platform setup, installs pi and packages declared in `pi/agent/settings.json`, and creates symlinks.
+- `.githooks/`: Git hooks that run `bootstrap.sh` after each `git pull`.
+
+## Sync on pull
+
+Run `./bootstrap.sh` once on each machine. It sets `core.hooksPath` to `.githooks`, so each later `git pull` that changes the branch runs `bootstrap.sh` again. The bootstrap skips install steps that are already done, then relinks the configuration and updates packages.
+
+A pull runs the pulled version of `bootstrap.sh`. Review remote changes before you pull them.
 
 ## Pi commit messages
 
