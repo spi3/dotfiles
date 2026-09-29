@@ -18,11 +18,11 @@
     "npm:@juicesharp/rpiv-todo",
     "npm:pi-background-tasks",
     "npm:pi-powerline-footer",
-    "npm:@tintinweb/pi-subagents",
     "npm:@narumitw/pi-btw",
     "npm:@d3ara1n/pi-context-include",
     "npm:pi-sandbox",
-    "npm:pi-goal-x"
+    "npm:pi-goal-x",
+    "npm:pi-subagents"
   ],
   "enabledModels": [
     "openai-codex/gpt-5.3-codex-spark",
